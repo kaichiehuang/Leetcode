@@ -10,18 +10,28 @@ class Solution:
         if len(s1) > len(s2):
             return False
 
-        freqMap = Counter(s1)
-        freqMap2 = defaultdict(int)
+        need = Counter(s1)
+        matches = 0
 
         l = 0
-
         for r in range(len(s2)):
-            freqMap[s2[r]] -= 1
-            if (r - l + 1) > len(s1):
-                freqMap[s2[l]] += 1
+
+            if s2[r] in need:
+                need[s2[r]] -= 1
+                if need[s2[r]] == 0:
+                    matches += 1
+
+            if r - l + 1 > len(s1):
+                if s2[l] in need:
+                    if need[s2[l]] == 0:
+                        matches -= 1
+                    need[s2[l]] += 1
                 l += 1
             
+            if matches == len(need):
+                return True
             
+        return False
 
 
 
