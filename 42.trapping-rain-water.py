@@ -7,6 +7,11 @@
 # @lc code=start
 class Solution:
     def trap(self, height: List[int]) -> int:
+        #key: "For an index, the water that can be filled will be the minimum of the max to the left and max to 
+        # the right of that index. Since if maxL < maxR, that means for position l, the 
+        # max to the left is already smaller than some right boundary, so we use maxL to calculate the 
+        # water that can be stored at index l.
+
         l, r = 0, len(height) - 1
         maxL, maxR = height[l], height[r]
         res = 0

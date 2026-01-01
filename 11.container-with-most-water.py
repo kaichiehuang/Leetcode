@@ -8,7 +8,7 @@
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         l, r = 0, len(height)-1
-
+        #key: water amount is determined by the shorter line
         maximum = 0
         while l < r:
             amount = min(height[l], height[r]) * (r-l)
