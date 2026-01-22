@@ -9,7 +9,8 @@ class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
         stack = []
         maxArea = 0
-
+        #Encounter a shorter bar -> calculate area starting from that tall histogram
+        #once pop the larger previous histogram, we will have a monotonically increasing set of histograms
         for i, h in enumerate(heights):
             start = i
             while stack and h < stack[-1][1]:

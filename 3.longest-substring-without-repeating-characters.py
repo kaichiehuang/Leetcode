@@ -7,6 +7,7 @@
 # @lc code=start
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        #contiguous sequence -> sliding window
         l = 0
         charSet = set()
         maxLen = 0

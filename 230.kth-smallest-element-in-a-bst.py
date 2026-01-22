@@ -13,6 +13,7 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        #key: Inorder gives sorted order
         counter = 0
         result = None
 

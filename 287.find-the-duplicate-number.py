@@ -7,6 +7,8 @@
 # @lc code=start
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
+        # Each index points to another index through its value
+        # Only the entrance of the cycle will have two other nodes point to it
         slow, fast = 0, 0
 
         while True:

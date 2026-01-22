@@ -8,7 +8,7 @@
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
         
-        stack = []
+        stack = [] #keep track of days that is waiting for a warmer day
         result = [0] * len(temperatures)
 
         for i in range(len(temperatures)):

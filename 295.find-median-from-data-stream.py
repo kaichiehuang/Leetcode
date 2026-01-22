@@ -7,6 +7,7 @@
 # @lc code=start
 import heapq
 class MedianFinder:
+    #key: just need to know the smallest of the bigger half and biggest of the smaller half
 
     def __init__(self):
         self.smallHeap = [] #maxHeap

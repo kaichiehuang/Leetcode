@@ -9,7 +9,7 @@ from collections import defaultdict
 import heapq
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        #weighted shorted path -> Dijkestra
+        #weighted shortest path -> Dijkestra
         edges = defaultdict(list)
         for a, b, c in times:
             edges[a].append((b, c))
@@ -28,6 +28,9 @@ class Solution:
             for neighbor, neiWeight in edges[node]:
                 if neighbor in visited:
                     continue
+                #in normal BFS, we would prefer adding neighbor to visited here
+                #but since adding to visited depends on the pq, so can't do it here.
+                #First discovery ≠ shortest path
                 heapq.heappush(pq, (weight + neiWeight, neighbor))
                 
         return t if len(visited) == n else -1

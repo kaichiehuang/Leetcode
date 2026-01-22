@@ -29,6 +29,7 @@ class Solution:
                     pattern = word[:i] + '*' + word[i+1:]
                     for neighbor in pattern_map[pattern]:
                         if neighbor not in visited:
+                            #add to visited immediately to prevent the most duplicates
                             visited.add(neighbor)
                             q.append(neighbor)
             res += 1
